@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\{DashboardController,EmployeeController,MysteryEvaluationController,DiagnosticController,CoachingSessionController};
 // Route::get('/', function () {
 //     return view('welcome');
@@ -11,6 +11,11 @@ use App\Http\Controllers\{DashboardController,EmployeeController,MysteryEvaluati
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get("/optimize", function () {
+    Artisan::call('optimize', ['--quiet' => true]);
+    return "Optimize Successfully!";
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
