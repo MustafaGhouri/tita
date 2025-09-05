@@ -1,0 +1,34 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+// app/Models/DiagnosticResult.php
+class DiagnosticResult extends Model {
+    use HasFactory;
+
+    public $timestamps = false;
+
+    protected $fillable = [
+        'employee_id',
+        'answers',
+        'score',
+        'submitted_at',
+        'manual_score',
+    ];
+
+    protected $casts = [
+        'answers' => 'array',
+        'submitted_at' => 'datetime',
+    ];
+
+    public function employee() {
+        return $this->belongsTo(Employee::class);
+    }
+
+    // Helper: manual_score ho to wahi, warna score
+    public function getFinalScoreAttribute() {
+        return $this->manual_score ?? $this->score;
+    }
+}
