@@ -43,11 +43,11 @@
   .table-wrap{overflow:auto;border-top:1px solid #eef2f7}
   table.emp{width:100%;border-collapse:separate;border-spacing:0;min-width:820px}
   table.emp thead th{
-    text-align:left;font-size:12px;color:#6b7280;font-weight:700;letter-spacing:.02em;
+    text-align:center;font-size:14px;color:#6b7280;font-weight:700;letter-spacing:.02em;
     padding:14px;border-bottom:1px solid #eef2f7;background:#f8fafc;position:sticky;top:0;z-index:1
   }
   table.emp tbody td{padding:14px;border-bottom:1px solid #f1f5f9;font-size:14px;color:#111827;vertical-align:middle}
-  tr.emp-row:hover td{background:#fbfdff}
+  tr.emp-row:hover td{background:#fbfdff;} 
 
   .badge{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:700}
   .dot{width:8px;height:8px;border-radius:999px}
@@ -110,7 +110,7 @@
       </thead>
       <tbody>
         @forelse($employees as $e)
-          <tr class="emp-row">
+          <tr class="emp-row" style="text-align: center;">
             <td>{{ $e->name ?? trim(($e->first_name ?? '').' '.($e->last_name ?? '')) }}</td>
             <td>{{ $e->email ?? '-' }}</td>
             <td>{{ $e->position ?? '-' }}</td>

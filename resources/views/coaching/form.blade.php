@@ -50,7 +50,7 @@
     </div>
 
     <div class="mt-3">
-      <label class="cf-label">Observations</label>
+      <label class="cf-label">Summary</label>
       <textarea name="observations" class="cf-textarea">{{ old('observations', is_array($session->observations)? json_encode($session->observations):$session->observations) }}</textarea>
     </div>
 

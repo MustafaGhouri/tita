@@ -10,7 +10,7 @@
 
   /* Page header */
   .ch-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-  .ch-title{margin:0;font-size:22px;font-weight:800}
+  .ch-title{margin:0;font-size:28px;font-weight:800}
   .ch-sub{margin:2px 0 0;color:var(--muted);font-size:13px}
 
   /* Tabs */
@@ -42,7 +42,7 @@
   .link{color:var(--primary);font-weight:600;text-decoration:none}
   .pill-info{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:#eef2ff;color:#3730a3;font-weight:700;font-size:12px}
   .actions{display:flex;align-items:center;justify-content:center}
-  .act-eye{display:inline-flex;width:28px;height:28px;align-items:center;justify-content:center;border-radius:6px}
+  .act-eye{display:inline-flex;width:28px;height:28px;align-items:center;justify-content:center;border-radius:6px;}
   .act-eye:hover{background:#f3f4f6}
   .act-eye svg{fill:#6d28d9}
   .mt-12{margin-top:12px}
@@ -117,8 +117,8 @@
               @endif
             </td>
             <td style="text-align:center">
-              <a class="act-eye" href="{{ route('coaching.edit',[$employee,$s]) }}" title="View">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M12 5C7 5 2.73 8.11 1 12c1.73 3.89 6 7 11 7s9.27-3.11 11-7c-1.73-3.89-6-7-11-7Zm0 10a3 3 0 1 1 3-3 3 3 0 0 1-3 3Z"/></svg>
+              <a class="act-eye " href="{{ route('coaching.edit',[$employee,$s]) }}" title="View">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><path d="m3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25Zm17.71-10.2a1 1 0 0 0 0-1.41L18.36 3.3a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.84-1.83Z"/></svg>
               </a>
             </td>
           </tr>

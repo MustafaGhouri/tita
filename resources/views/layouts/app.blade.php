@@ -35,7 +35,7 @@
     .nav svg{width:16px;height:16px}
 
     .content{flex:1;display:flex;flex-direction:column;min-width:0}
-    .topbar{height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;background:#fff;border-bottom:1px solid var(--border)}
+    .topbar{height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;background:#fff;border-bottom:1px solid var(--border)}
     .top-left{font-size:18px;font-weight:700;color:var(--primary)}
     .top-right{display:flex;align-items:center;gap:16px}
     .icon{width:20px;height:20px;color:var(--muted)}
@@ -44,7 +44,7 @@
     .user-info{display:flex;flex-direction:column;line-height:1}
     .user-info span:first-child{font-weight:700;font-size:14px}
     .user-info span:last-child{font-size:12px;color:var(--muted)}
-    .menu{position:absolute;right:0;top:46px;background:#fff;border:1px solid var(--border);border-radius:10px;box-shadow:var(--shadow);min-width:160px;overflow:hidden;display:none;z-index:30}
+    .menu{position:absolute;right:-20px;top:52px;background:#fff;border:1px solid var(--border);border-radius:10px;box-shadow:var(--shadow);min-width:160px;overflow:hidden;display:none;z-index:30}
     .menu a,.menu button{display:block;width:100%;text-align:left;padding:10px 12px;background:#fff;border:0;font:inherit;cursor:pointer}
     .menu a:hover,.menu button:hover{background:#f8fafc}
 
@@ -106,6 +106,9 @@
     /* small utils */
     .mt-24{margin-top:24px}
     .w-100{width:100%}
+    .btn-logout{
+      align-content: center;
+    }
 
     /* responsive: hide sidebar */
     @media (max-width:860px){
@@ -154,10 +157,10 @@
               <span>{{ Auth::user()->name }}</span>
               <span>{{ Auth::user()->role ?? 'User' }}</span>
             </div>
-            <div class="menu" id="userMenu" >
+            <div class="menu btn-logout" id="userMenu" >
               <form method="POST" action="{{ route('logout') }}">
                 @csrf
-                <button type="submit" style="background:#f07167; font-weight:700 ">Logout</button>
+                <button  class="text-[#ffffff]" type="submit" style="background:#522583; font-weight:700; color:white;">Logout</button>
               </form>
             </div>
           </div>

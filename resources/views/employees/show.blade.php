@@ -114,10 +114,10 @@
         <table class="clean">
           <thead>
             <tr>
-              <th style="width:28%">Month</th>
-              <th style="width:14%">Score</th>
-              <th style="width:22%">Video</th>
-              <th style="width:36%">Actions</th>
+              <th style="width:28% text-align: center; font-weight:900; font-size:14px;">Month</th>
+              <th style="width:14% text-align: center; font-weight:900; font-size:14px;">Score</th>
+              <th style="width:22% text-align: center; font-weight:900; font-size:14px;">Video</th>
+              <th style="width:36% text-align: center; font-weight:900; font-size:14px;">Actions</th>
             </tr>
           </thead>
           <tbody>

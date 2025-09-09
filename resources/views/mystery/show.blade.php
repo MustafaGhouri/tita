@@ -123,12 +123,12 @@
   <div class="table-wrap">
     <table class="ms">
       <thead>
-        <tr>
-          <th style="width:22%">Month</th>
-          <th style="width:14%">Score</th>
+        <tr style="">
+          <th style="width:22% ; text-align: center; font-weight:900; font-size:16px;">Month</th>
+          <th style="width:14% ; text-align: center; font-weight:900; font-size:16px;">Score</th>
           <!-- <th style="width:24%">Evaluator</th> -->
-          <th style="width:20%">Video</th>
-          <th style="width:20%">Actions</th>
+          <th style="width:20% ; text-align: center; font-weight:900; font-size:16px;">Video</th>
+          <th style="width:20% ; text-align: center; font-weight:900; font-size:16px;">Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -139,7 +139,7 @@
             $monthLabel = $ev->monthKey ?? \Illuminate\Support\Carbon::parse($ev->created_at)->isoFormat('MMMM YYYY');
             $videoUrl = !empty($ev->video_path) ? asset('public/'.$ev->video_path) : null;
           @endphp
-          <tr>
+          <tr style="text-align: center">
             <td>{{ $monthLabel }}</td>
             <td><span class="score {{ $scoreClass }}">{{ $score }}/100</span></td>
             <!-- <td>{{ $ev->evaluator->name ?? '—' }}</td> -->
