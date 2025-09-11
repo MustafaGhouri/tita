@@ -19,7 +19,7 @@ class User extends Authenticatable
      */
     
 protected $fillable = ['name','email','password','company_id','role','position'];
-    public function company(){ return $this->belongsTo(Company::class); }
+   // public function company(){ return $this->belongsTo(Company::class); }
     public function isClient(){ return $this->role === 'CLIENT'; }
     public function isEmployee(){ return $this->role === 'EMPLOYEE'; }
 
@@ -45,4 +45,10 @@ protected $fillable = ['name','email','password','company_id','role','position']
             'password' => 'hashed',
         ];
     }
+
+        public function company()
+         {
+             return $this->belongsTo(\App\Models\Company::class, 'company_id');
+         }
+
 }

@@ -132,6 +132,22 @@
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-3.53 0-8 1.77-8 4v2h16v-2c0-2.23-4.47-4-8-4Z"/></svg>
           <span>Employees</span>
         </a>
+          {{-- ...other links... --}}
+          <a class="{{ str_starts_with(request()->route()?->getName() ?? '', 'mystery.') ? 'active' : '' }}"
+          href="{{ route('mystery.index') }}">
+          <svg viewBox="0 0 24 24" aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <!-- clipboard outline -->
+          <rect x="5" y="6" width="14" height="14" rx="2"></rect>
+          <!-- clip top -->
+          <path d="M9 6V4h6v2"></path>
+          <!-- check mark -->
+          <path d="M9 14l2 2l4-4"></path>
+          </svg>
+          <span>Mystery Shopper</span>
+          </a>
       </nav>
     </aside>
 
