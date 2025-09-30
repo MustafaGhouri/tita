@@ -50,7 +50,7 @@
         </div>
       </div>
 
-      <h1 class="auth-title">Sign in to your account</h1>
+      <h1 class="auth-title">Sign in to your account mazzzzzzzz</h1>
       <p class="auth-sub">Enter your credentials to access the system</p>
 
       <form method="POST" action="{{ route('login') }}" novalidate>
