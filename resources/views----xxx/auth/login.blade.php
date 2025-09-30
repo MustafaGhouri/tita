@@ -58,7 +58,7 @@
 
         {{-- Username --}}
         <div class="field">
-          <label class="label">Username</label>
+          <label class="label">Username mazzz</label>
           <div class="control">
             <span class="icon-left">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
