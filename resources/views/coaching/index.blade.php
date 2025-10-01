@@ -97,6 +97,7 @@
       </thead>
       <tbody>
         @foreach($list as $s)
+        {{-- {!! $s->attachments !!} --}}
           @php
             $files = is_array($s->attachments) ? count($s->attachments) : 0;
           @endphp
@@ -109,8 +110,11 @@
             <td>
               @if($files)
                 <span class="pill-info">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"><path d="M8 17a5 5 0 0 1 0-7l5-5a4 4 0 0 1 6 6l-5 5"/></svg>
-                  {{ $files }} {{ $files>1?'files':'file' }}
+                  @foreach ($s->attachments as $attachment)
+                    <a href="{{ $attachment }}" target="_blank">{{ $attachment }}</a>
+                  @endforeach
+                  {{-- <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"><path d="M8 17a5 5 0 0 1 0-7l5-5a4 4 0 0 1 6 6l-5 5"/></svg>
+                  {{ $files }} {{ $files>1?'files':'file' }} --}}
                 </span>
               @else
                 <span class="muted">—</span>

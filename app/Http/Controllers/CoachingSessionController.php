@@ -7,8 +7,11 @@ use Illuminate\Http\Request;
 use App\Http\Requests\CoachingSessionRequest;
 use App\Models\Employee;
 
-use App\Models\CoachingSession;
+// use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary; // ensure this import
 
+use Cloudinary\Api\Upload\UploadApi;
+
+use App\Models\CoachingSession; // <-- confirm your model namespace
 // app/Http/Controllers/CoachingSessionController.php
 class CoachingSessionController extends Controller {
     public function __construct(){ $this->middleware('can:client-only'); }
@@ -47,18 +50,21 @@ class CoachingSessionController extends Controller {
      public function store(CoachingSessionRequest $req, Employee $employee)
     {
         $data = $req->validated();
-        $data['employee_id'] = $employee->id;
+
         $data['company_id'] = auth()->user()->company_id;
+        $data['employee_id'] = $employee->id;
         $data['created_by'] = auth()->id();
-          return $req->all();
+
+        //   return $req->all();
+
         // attachments -> Cloudinary (URLs save honge)
         if ($req->hasFile('attachments')) {
             $urls = [];
 
             foreach ((array) $req->file('attachments') as $file) {
-                $isVideo = Str::startsWith($file->getMimeType(), 'video');
+                $isVideo = \Str::startsWith($file->getMimeType(), 'video');
 
-                $uploaded = Cloudinary::uploadFile(
+                $res = (new UploadApi())->upload(
                     $file->getRealPath(),
                     [
                         'folder'        => 'coach/' . auth()->user()->company_id . '/' . $employee->id,
@@ -68,7 +74,17 @@ class CoachingSessionController extends Controller {
                 );
 
                 // sirf URL save kar rahe hain (simple drop-in replacement)
-                $urls[] = $uploaded->getSecurePath();
+                // $urls[] = $uploaded->getSecurePath();
+                $urls[] = $res['secure_url'];
+
+                // richer: keep public_id for future deletes / transforms
+                $details[] = [
+                    'url'       => $res['secure_url'],
+                    'public_id' => $res['public_id'],
+                    'type'      => $isVideo ? 'video' : 'file',
+                ];
+
+                // $data['attachments'] = $urls;
 
                 // — Agar aap future me delete/transform karna chahen to iski jagah yeh store karein:
                 // $urls[] = [
@@ -79,11 +95,13 @@ class CoachingSessionController extends Controller {
             }
 
             $data['attachments'] = $urls; // JSON column par cast ho to direct array save ho jayega
+
+            // echo "<pre>"; print_r($data); echo "</pre>";
         }
       
-        //CoachingSession::create($data);
+        CoachingSession::create($data);
 
-        return $data;
+        return redirect()->route('coaching.index', $employee)->with('ok', 'Saved.');
     }
 
 
