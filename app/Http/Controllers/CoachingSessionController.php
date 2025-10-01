@@ -50,7 +50,7 @@ class CoachingSessionController extends Controller {
         $data['employee_id'] = $employee->id;
         $data['company_id'] = auth()->user()->company_id;
         $data['created_by'] = auth()->id();
-
+          return $req->all();
         // attachments -> Cloudinary (URLs save honge)
         if ($req->hasFile('attachments')) {
             $urls = [];
