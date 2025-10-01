@@ -42,7 +42,7 @@
     <div>
       <h2 class="dv-name">{{ $employee->name }}</h2>
       <div class="dv-meta">
-        Submitted: {{ optional($result->submitted_at)->format('M d, Y • H:i') }}
+        Enviado: {{ optional($result->submitted_at)->format('M d, Y • H:i') }}
       </div>
       <div style="margin-top:10px">
         <span class="score-badge {{ $scoreCls }}">{{ $score }}/100</span>
@@ -50,7 +50,7 @@
     </div>
 
     <a class="btn btn-outline" href="{{ route('diagnostic.pdf',$employee) }}">
-      Download PDF
+      Descargar PDF
     </a>
   </div>
 

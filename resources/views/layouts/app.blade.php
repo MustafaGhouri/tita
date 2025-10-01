@@ -130,7 +130,7 @@
         </a>
         <a class="{{ str_contains(request()->route()?->getName() ?? '','employees')?'active':'' }}" href="{{ route('employees.index') }}">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-3.53 0-8 1.77-8 4v2h16v-2c0-2.23-4.47-4-8-4Z"/></svg>
-          <span>Employees</span>
+          <span>Empleados</span>
         </a>
           {{-- ...other links... --}}
           <a class="{{ str_starts_with(request()->route()?->getName() ?? '', 'mystery.') ? 'active' : '' }}"
@@ -146,23 +146,23 @@
           <!-- check mark -->
           <path d="M9 14l2 2l4-4"></path>
           </svg>
-          <span>Mystery Shopper</span>
+          <span>Comprador misterioso</span>
           </a>
       </nav>
     </aside>
 
     <section class="content">
       <div class="topbar">
-        <div class="top-left">Attento Portal</div>
+        <div class="top-left">Portal Atento</div>
         <div class="top-right" style="cursor: pointer;">
          <!--  <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
           </svg> -->
 
           @guest
-            <a href="{{ route('login') }}" class="user-info" style="font-weight:700;color:var(--primary)">Login</a>
+            <a href="{{ route('login') }}" class="user-info" style="font-weight:700;color:var(--primary)">Acceso</a>
             @if (Route::has('register'))
-              <a href="{{ route('register') }}" class="user-info" style="color:var(--muted)">Register</a>
+              <a href="{{ route('register') }}" class="user-info" style="color:var(--muted)">Registro</a>
             @endif
           @endguest
 
@@ -176,7 +176,7 @@
             <div class="menu btn-logout" id="userMenu" >
               <form method="POST" action="{{ route('logout') }}">
                 @csrf
-                <button  class="text-[#ffffff]" type="submit" style="background:#522583; font-weight:700; color:white;">Logout</button>
+                <button  class="text-[#ffffff]" type="submit" style="background:#522583; font-weight:700; color:white;">Cerrar sesión</button>
               </form>
             </div>
           </div>

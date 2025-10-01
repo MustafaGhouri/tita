@@ -72,10 +72,10 @@
 </style>
 
 <div class="page-head">
-  <h1 class="page-title">Employees</h1>
+  <h1 class="page-title">Empleados</h1>
   <a href="{{ route('employees.create') }}" class="btn btn-purple">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path d="M13 11h4v2h-4v4h-2v-4H7v-2h4V7h2v4Z"/></svg>
-    Add Employee
+    Agregar empleado
   </a>
 </div>
 
@@ -83,12 +83,12 @@
   {{-- header with search + toggle --}}
   <div class="card-head">
     <div class="search">
-      <input id="dt-search" type="text" placeholder="Search employees...">
+      <input id="dt-search" type="text" placeholder="Buscar empleados...">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m21 20-5.2-5.2a7 7 0 1 0-1.4 1.4L20 21l1-1ZM5 10a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"/></svg>
     </div>
 
     <form method="GET" class="toggle" action="">
-      <label for="only_active">Show Active Only</label>
+      <label for="only_active">Mostrar solo activo</label>
       <label class="switch">
         <input type="checkbox" name="only_active" id="only_active" value="1" {{ request('only_active')?'checked':'' }} onchange="this.form.submit()">
         <span class="slider"></span>
@@ -101,11 +101,11 @@
     <table class="emp" id="empTable">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Position</th>
-          <th>Status</th>
-          <th style="text-align:center">Actions</th>
+          <th>Nombre</th>
+          <th>Correo electrónico</th>
+          <th>Posición</th>
+          <th>Estado</th>
+          <th style="text-align:center">Comportamiento</th>
         </tr>
       </thead>
       <tbody>
@@ -116,9 +116,9 @@
             <td>{{ $e->position ?? '-' }}</td>
             <td>
               @if($e->status === 'ACTIVE')
-                <span class="badge badge-active"><span class="dot"></span> Active</span>
+                <span class="badge badge-active"><span class="dot"></span> Activo</span>
               @else
-                <span class="badge badge-inactive"><span class="dot"></span> Inactive</span>
+                <span class="badge badge-inactive"><span class="dot"></span> inactivo</span>
               @endif
             </td>
             <td>
@@ -139,7 +139,7 @@
             </td>
           </tr>
         @empty
-          <tr><td colspan="5" class="page-pad">No employees found.</td></tr>
+          <tr><td colspan="5" class="page-pad">No se encontraron empleados.</td></tr>
         @endforelse
       </tbody>
     </table>

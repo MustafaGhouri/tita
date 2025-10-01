@@ -55,7 +55,7 @@
 {{-- Header --}}
 <div class="ch-head">
   <div>
-    <h2 class="ch-title">Employee Profile</h2>
+    <h2 class="ch-title">Perfil del empleado</h2>
     <p class="ch-sub" style="font-size: 30px;">{{ $employee->name }} @if($employee->position) – {{ $employee->position }} @endif</p>
   </div>
   {{-- top-right icons placeholder (optional) --}}
@@ -71,16 +71,16 @@
 
 {{-- small filter link --}}
 <div class="header-filter">
-  <a href="{{ request()->fullUrlWithQuery(['due'=>'soon']) }}" class="link">Follow-ups due in next 30 days</a>
+  <a href="{{ request()->fullUrlWithQuery(['due'=>'soon']) }}" class="link">Seguimientos previstos para los próximos 30 días</a>
 </div>
 
 {{-- Coaching Sessions card --}}
 <section class="card">
   <div class="card-head">
-    <h3 class="card-title">Coaching Sessions</h3>
+    <h3 class="card-title">Sesiones de entrenamiento</h3>
     <a class="btn btn-primary" href="{{ route('coaching.create',$employee) }}">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path d="M13 11h4v2h-4v4h-2v-4H7v-2h4V7h2v4Z"/></svg>
-      New Session
+      Nueva sesión
     </a>
   </div>
 
@@ -88,11 +88,11 @@
     <table class="clean">
       <thead>
         <tr>
-          <th style="width:16%">Date</th>
-          <th>Summary</th>
-          <th style="width:18%">Follow-up Date</th>
-          <th style="width:16%">Attachments</th>
-          <th style="width:10%;text-align:center">Actions</th>
+          <th style="width:16%">Fecha</th>
+          <th>Resumen</th>
+          <th style="width:18%">Fecha de seguimiento</th>
+          <th style="width:16%">Adjuntos</th>
+          <th style="width:10%;text-align:center">Comportamiento</th>
         </tr>
       </thead>
       <tbody>

@@ -73,11 +73,11 @@
         @csrf
         @if($employee->status === 'ACTIVE')
           <button class="pill pill-active" title="Toggle status">
-            <span class="dot"></span> Active
+            <span class="dot"></span> Activo
           </button>
         @else
           <button class="pill pill-inactive" title="Toggle status">
-            <span class="dot"></span> Inactive
+            <span class="dot"></span> Inactivo
           </button>
         @endif
       </form>
@@ -92,7 +92,7 @@
         @endif
       </div>
       <div>
-        <div><span class="muted">Email:</span class="p-pos"> {{ $employee->email ?? '-' }}</div>
+        <div><span class="muted">Correo electrónico:</span class="p-pos"> {{ $employee->email ?? '-' }}</div>
       </div>
     </div>
   </section>
@@ -102,11 +102,11 @@
     {{-- Mystery Shopper --}}
     <section class="card pad">
       <div class="card-head">
-        <h3 class="card-title">Mystery Shopper</h3>
+        <h3 class="card-title">Comprador misterioso</h3>
         @if($canNewMystery)
-          <a class="btn btn-primary" href="{{ route('mystery.create',$employee) }}">New Evaluation</a>
+          <a class="btn btn-primary" href="{{ route('mystery.create',$employee) }}">Nueva evaluación</a>
         @else
-          <button class="btn btn-disabled" disabled>Only one evaluation per month</button>
+          <button class="btn btn-disabled" disabled>Sólo una evaluación por mes</button>
         @endif
       </div>
 
@@ -114,10 +114,10 @@
         <table class="clean">
           <thead>
             <tr>
-              <th style="width:28% text-align: center; font-weight:900; font-size:14px;">Month</th>
-              <th style="width:14% text-align: center; font-weight:900; font-size:14px;">Score</th>
+              <th style="width:28% text-align: center; font-weight:900; font-size:14px;">Mes</th>
+              <th style="width:14% text-align: center; font-weight:900; font-size:14px;">Puntaje</th>
               <th style="width:22% text-align: center; font-weight:900; font-size:14px;">Video</th>
-              <th style="width:36% text-align: center; font-weight:900; font-size:14px;">Actions</th>
+              <th style="width:36% text-align: center; font-weight:900; font-size:14px;">Comportamiento</th>
             </tr>
           </thead>
           <tbody>
@@ -132,13 +132,13 @@
               <td><span class="score {{ $class }}">{{ $score }}</span></td>
               <td>
                 @if($video)
-                  <a class="link" target="_blank" href="{{ $video }}">View Video</a>
+                  <a class="link" target="_blank" href="{{ $video }}">Ver vídeo</a>
                 @else
                   <span class="muted">—</span>
                 @endif
               </td>
               <td>
-                <a class="link" href="{{ route('mystery.show',$ev) }}">View Report</a>
+                <a class="link" href="{{ route('mystery.show',$ev) }}">Ver informe</a>
                 &nbsp;·&nbsp;
                 <a class="link" href="{{ route('mystery.pdf',$ev) }}">PDF</a>
               </td>
@@ -152,18 +152,18 @@
     {{-- Diagnostic Test --}}
     <section class="card pad">
       <div class="card-head">
-        <h3 class="card-title">Diagnostic Test</h3>
+        <h3 class="card-title">Prueba de Diagnóstico</h3>
         @if(!$diagnostic)
-          <a class="btn btn-primary" href="{{ route('diagnostic.start',$employee) }}">Run Diagnostic Test</a>
+          <a class="btn btn-primary" href="{{ route('diagnostic.start',$employee) }}">Ejecutar prueba de diagnóstico</a>
         @else
-          <button class="btn btn-disabled" disabled>Diagnostic Completed</button>
+          <button class="btn btn-disabled" disabled>Diagnóstico completado</button>
         @endif
       </div>
 
       @if($diagnostic)
         <div>
-          Score: <strong>{{ $diagnostic->score }}</strong>
-          &nbsp;·&nbsp;<a class="link" href="{{ route('diagnostic.view',$employee) }}">View</a>
+          Puntaje: <strong>{{ $diagnostic->score }}</strong>
+          &nbsp;·&nbsp;<a class="link" href="{{ route('diagnostic.view',$employee) }}">vista</a>
           &nbsp;·&nbsp;<a class="link" href="{{ route('diagnostic.pdf',$employee) }}">PDF</a>
         </div>
       @endif
@@ -172,10 +172,10 @@
     {{-- Coaching Sessions --}}
     <section class="card pad">
       <div class="card-head">
-        <h3 class="card-title">Coaching Sessions</h3>
-        <a class="btn btn-accent" href="{{ route('coaching.create',$employee) }}">New Session</a>
+        <h3 class="card-title">Sesiones de entrenamiento</h3>
+        <a class="btn btn-accent" href="{{ route('coaching.create',$employee) }}">Nueva sesión</a>
       </div>
-      <a class="link" href="{{ route('coaching.index',$employee) }}">Open coaching list & filter</a>
+      <a class="link" href="{{ route('coaching.index',$employee) }}">Abrir lista de coaching y filtrar</a>
     </section>
   </div>
 </div>

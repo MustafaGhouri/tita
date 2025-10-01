@@ -72,7 +72,7 @@
 {{-- Global validation errors list --}}
 @if ($errors->any())
   <div class="alert alert-danger">
-    <strong>There were some problems with your input:</strong>
+    <strong>Hubo algunos problemas con tu entrada:</strong>
     <ul class="mb-0">
       @foreach ($errors->all() as $msg)
         <li>{{ $msg }}</li>
@@ -84,15 +84,15 @@
 <div class="mc-wrap">
   <div class="mc-head">
     <div>
-      <h2 class="mc-title">New Evaluation — {{ $employee->name }} ({{ $month }})</h2>
-      <p class="mc-sub">Fill the checklist and upload evidence video.</p>
+      <h2 class="mc-title">Nueva evaluación — {{ $employee->name }} ({{ $month }})</h2>
+      <p class="mc-sub">Complete la lista de verificación y cargue el video de evidencia.</p>
       <div class="mc-score">
-        <span><strong>Score:</strong> <span id="mcScore">0</span> / <span id="mcMax">0</span></span>
+        <span><strong>Puntaje:</strong> <span id="mcScore">0</span> / <span id="mcMax">0</span></span>
         <span>|</span>
-        <span><strong>Percent:</strong> <span id="mcPct">0%</span></span>
+        <span><strong>Por ciento:</strong> <span id="mcPct">0%</span></span>
       </div>
     </div>
-    <a class="mc-back" href="{{ url()->previous() }}">← Back</a>
+    <a class="mc-back" href="{{ url()->previous() }}">← Atrás</a>
   </div>
 
   <form method="POST" action="{{ route('mystery.store',$employee) }}" enctype="multipart/form-data" class="mc-card mc-pad" id="mcForm">
@@ -218,19 +218,19 @@
       {{-- Evidence video (keep as before) --}}
       <div class="mc-item">
         <div class="mc-item-hd">
-          <label class="mc-label">Upload Video (MP4/AVI/MOV)</label>
+          <label class="mc-label">Subir vídeo (MP4/AVI/MOV)</label>
         </div>
         <input class="mc-file" type="file" name="video" required accept="video/mp4,video/avi,video/quicktime,video/x-msvideo,video/x-matroska">
-        <div class="mc-help">Max size depends on server limits.</div>
+        <div class="mc-help">El tamaño máximo depende de los límites del servidor.</div>
       </div>
     </div>
 
     <div class="mc-actions">
       <button class="btn btn-primary" type="submit">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path d="M13 11h4v2h-4v4h-2v-4H7v-2h4V7h2v4Z"/></svg>
-        Save Evaluation
+        Guardar evaluación
       </button>
-      <a href="{{ url()->previous() }}" class="btn btn-secondary">Cancel</a>
+      <a href="{{ url()->previous() }}" class="btn btn-secondary">Cancelar</a>
     </div>
   </form>
 </div>

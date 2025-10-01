@@ -73,8 +73,8 @@
 
 <div class="head">
   <div style="display:flex;align-items:center;gap:8px">
-    <h1 class="title">Mystery Shopper Module</h1>
-    <span class="chip">Employee Profile</span>
+    <h1 class="title">Módulo de comprador misterioso</h1>
+    <span class="chip">Perfil del empleado</span>
   </div>
 </div>
 
@@ -107,31 +107,31 @@
 <div class="card" style="margin-bottom:16px">
   <div class="card-h" style="display:flex;align-items:center;justify-content:space-between">
     <div>
-      <h3 class="card-t">Mystery Shopper Evaluations</h3>
-      <p class="card-s">Manage and track mystery shopper evaluations for this employee</p>
+      <h3 class="card-t">Evaluaciones de compradores misteriosos</h3>
+      <p class="card-s">Gestionar y realizar un seguimiento de las evaluaciones de compradores misteriosos para este empleado</p>
     </div>
 
     @if($canNewMystery ?? true)
       {{-- 🔐 Open modal to enter company code --}}
       <button type="button" class="btn btn-primary" id="evalBtn">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path d="M13 11h4v2h-4v4h-2v-4H7v-2h4V7h2v4Z"/></svg>
-        New Evaluation
+        Nueva evaluación
       </button>
     @else
-      <button class="btn btn-disabled" type="button" disabled>Only one evaluation per month</button>
+      <button class="btn btn-disabled" type="button" disabled>Sólo una evaluación por mes</button>
     @endif
   </div>
 
   <div class="pad">
-    <div class="card-t" style="margin:0 0 10px">Evaluation Archive</div>
+    <div class="card-t" style="margin:0 0 10px">Archivo de evaluación</div>
     <table class="table">
       <thead>
         <tr>
-          <th>Month</th>
-          <th>Score</th>
-          <th>Evaluator</th>
+          <th>Mes</th>
+          <th>Puntaje</th>
+          <th>Evaluador</th>
           <th>Video</th>
-          <th>Actions</th>
+          <th>Comportamiento</th>
         </tr>
       </thead>
       <tbody>
@@ -149,15 +149,15 @@
             <td>{{ $evaluator }}</td>
             <td>
               @if($videoUrl)
-                <a class="link" href="{{ $videoUrl }}" target="_blank">View Video</a>
+                <a class="link" href="{{ $videoUrl }}" target="_blank">Ver vídeo</a>
               @else — @endif
             </td>
             <td>
-              <a class="link" href="{{ route('mystery.show',$ev) }}">View Details</a>
+              <a class="link" href="{{ route('mystery.show',$ev) }}">Ver detalles</a>
             </td>
           </tr>
         @empty
-          <tr><td colspan="5" style="color:#6b7280">No evaluations yet.</td></tr>
+          <tr><td colspan="5" style="color:#6b7280">Aún no hay evaluaciones.</td></tr>
         @endforelse
       </tbody>
     </table>
@@ -168,17 +168,17 @@
 <div class="ms-modal" id="codeModal" style="display:none">
   <div class="ms-box">
     <div class="ms-box-h">
-      <div class="ms-box-t">Enter Security Code</div>
+      <div class="ms-box-t">Ingrese el código de seguridad</div>
       <button class="ms-close" id="codeClose" aria-label="Close">✕</button>
     </div>
-    <p class="ms-desc">Only your internal team can start a new evaluation.</p>
+    <p class="ms-desc">Sólo su equipo interno puede iniciar una nueva evaluación.</p>
 
     <form method="POST" action="{{ route('mystery.unlock', $employee) }}" id="codeForm">
       @csrf
       <input class="ms-input" name="code" id="codeInput" type="password" placeholder="Company code" autocomplete="one-time-code" required>
       <div class="ms-actions">
-        <button class="btn btn-disabled" type="button" id="codeCancel">Cancel</button>
-        <button class="btn btn-primary" type="submit" id="codeGo">Start</button>
+        <button class="btn btn-disabled" type="button" id="codeCancel">Cancelar</button>
+        <button class="btn btn-primary" type="submit" id="codeGo">Comenzar</button>
       </div>
     </form>
   </div>

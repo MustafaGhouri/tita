@@ -77,8 +77,8 @@
 {{-- Page heading --}}
 <div class="ms-head">
   <div style="display:flex;align-items:center">
-    <h1 class="ms-title">Mystery Shopper Module</h1>
-    <span class="ms-chip">Employee Profile</span>
+    <h1 class="ms-title">Módulo de comprador misterioso</h1>
+    <span class="ms-chip">Perfil del empleado</span>
   </div>
   <div class="ms-right"></div>
 </div>
@@ -112,18 +112,18 @@
 {{-- Evaluation Archive table --}}
 <div class="card">
   <div class="card-head">
-    <h3 class="card-title">Evaluation Archive</h3>
-    <p class="card-sub">Manage and track mystery shopper evaluations for this employee</p>
+    <h3 class="card-title">Archivo de evaluación</h3>
+    <p class="card-sub">Gestionar y realizar un seguimiento de las evaluaciones de compradores misteriosos para este empleado</p>
   </div>
 
   <div class="table-wrap">
     <table class="ms">
       <thead>
         <tr>
-          <th style="width:22%; text-align:center; font-weight:900; font-size:16px;">Month</th>
-          <th style="width:14%; text-align:center; font-weight:900; font-size:16px;">Score</th>
+          <th style="width:22%; text-align:center; font-weight:900; font-size:16px;">Mes</th>
+          <th style="width:14%; text-align:center; font-weight:900; font-size:16px;">Puntaje</th>
           <th style="width:20%; text-align:center; font-weight:900; font-size:16px;">Video</th>
-          <th style="width:20%; text-align:center; font-weight:900; font-size:16px;">Actions</th>
+          <th style="width:20%; text-align:center; font-weight:900; font-size:16px;">Comportamiento</th>
         </tr>
       </thead>
       <tbody>
@@ -139,17 +139,17 @@
             <td><span class="score {{ $scoreClass }}">{{ $score }}/100</span></td>
             <td>
               @if($videoUrl)
-                <a class="link" href="{{ $videoUrl }}" target="_blank">View Video</a>
+                <a class="link" href="{{ $videoUrl }}" target="_blank">Ver vídeo</a>
               @else
                 —
               @endif
             </td>
             <td>
-              <a class="link" href="{{ route('mystery.pdf',$ev) }}">Download PDF</a>
+              <a class="link" href="{{ route('mystery.pdf',$ev) }}">Descargar PDF</a>
             </td>
           </tr>
         @empty
-          <tr><td colspan="5" style="color:#6b7280;padding:18px">No evaluations yet.</td></tr>
+          <tr><td colspan="5" style="color:#6b7280;padding:18px">Aún no hay evaluaciones.</td></tr>
         @endforelse
       </tbody>
     </table>
@@ -159,8 +159,8 @@
 {{-- Current evaluation details --}}
 <div class="card mt-24">
   <div class="card-head">
-    <h3 class="card-title">Current Evaluation</h3>
-    <p class="card-sub">Month: {{ $evaluation->monthKey }} • Score: {{ $evaluation->score }}/100</p>
+    <h3 class="card-title">Evaluación actual</h3>
+    <p class="card-sub">Month: {{ $evaluation->monthKey }} • Puntaje: {{ $evaluation->score }}/100</p>
   </div>
 
   <div class="card-pad">
@@ -168,10 +168,10 @@
     @if($videoUrl)
       <video controls style="width:100%;border:1px solid var(--border);border-radius:12px">
         <source src="{{ $videoUrl }}" type="video/mp4">
-        <a href="{{ $videoUrl }}" class="link">View Video</a>
+        <a href="{{ $videoUrl }}" class="link">Ver vídeo</a>
       </video>
     @else
-      <div class="muted">No video attached.</div>
+      <div class="muted">No hay vídeo adjunto.</div>
     @endif
 
     {{-- Answers by section --}}
@@ -223,7 +223,7 @@
     @endforeach
 
     <div class="mt-16">
-      <a class="btn btn-primary" href="{{ route('mystery.pdf',$evaluation) }}">Download PDF</a>
+      <a class="btn btn-primary" href="{{ route('mystery.pdf',$evaluation) }}">Descargar PDF</a>
     </div>
   </div>
 </div>

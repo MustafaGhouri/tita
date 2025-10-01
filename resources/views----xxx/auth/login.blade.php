@@ -50,7 +50,7 @@
         </div>
       </div>
 
-      <h1 class="auth-title">Sign in to your account mazzzzzzzz</h1>
+      <h1 class="auth-title">Sign in to your account</h1>
       <p class="auth-sub">Enter your credentials to access the system</p>
 
       <form method="POST" action="{{ route('login') }}" novalidate>
@@ -58,7 +58,7 @@
 
         {{-- Username --}}
         <div class="field">
-          <label class="label">Username mazzz</label>
+          <label class="label">Username</label>
           <div class="control">
             <span class="icon-left">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">

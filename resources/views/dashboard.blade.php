@@ -28,7 +28,7 @@
 <div class="page-head">
   <div>
     <h1>Dashboard</h1>
-    <p>Welcome back! Here's what's happening with your team.</p>
+    <p>¡Bienvenidos de nuevo! Esto es lo que está pasando con tu equipo.</p>
   </div>
 </div>
 
@@ -37,7 +37,7 @@
   <div class="card pad">
     <div class="kpi">
       <div>
-        <div class="kpi-title">Active Employees</div>
+        <div class="kpi-title">Empleados activas</div>
         <div class="kpi-value">{{ $activeEmployees }}</div>
         <div class="kpi-hint">+2 this month</div>
       </div>
@@ -52,9 +52,9 @@
   <div class="card pad">
     <div class="kpi">
       <div>
-        <div class="kpi-title">Diagnostic Completed</div>
+        <div class="kpi-title">Diagnóstico completado</div>
         <div class="kpi-value">{{ $diagCompleted }}</div>
-        <div class="kpi-hint">+3 this week</div>
+        <div class="kpi-hint">+3 esta semana</div>
       </div>
       <div class="kpi-icon bg-indigo-50">
         <svg class="text-indigo-600" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
@@ -67,9 +67,9 @@
   <div class="card pad">
     <div class="kpi">
       <div>
-        <div class="kpi-title">Evaluations (This Month)</div>
+        <div class="kpi-title">Evaluaciones (este mes)</div>
         <div class="kpi-value">{{ $evalsThisMonth }}</div>
-        <div class="card-sub">Target: 24</div>
+        <div class="card-sub">Objetivo: 24</div>
       </div>
       <div class="kpi-icon bg-orange-50">
         <svg class="text-orange-500" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
@@ -82,9 +82,9 @@
   <div class="card pad">
     <div class="kpi">
       <div>
-        <div class="kpi-title">Upcoming Coaching</div>
+        <div class="kpi-title">Próximo entrenamiento</div>
         <div class="kpi-value">{{ $upcomingCoach }}</div>
-        <div class="card-sub">Next: Tomorrow</div>
+        <div class="card-sub">Siguiente: Mañana</div>
       </div>
       <div class="kpi-icon bg-emerald-50">
         <svg class="text-emerald-600" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
@@ -100,8 +100,8 @@
   <!-- Recent Activity -->
   <div class="card">
     <div class="card-header">
-      <h3 class="card-title">Recent Activity</h3>
-      <p class="card-sub">Latest tests and evaluations</p>
+      <h3 class="card-title">Actividad reciente</h3>
+      <p class="card-sub">Últimas pruebas y evaluaciones</p>
     </div>
     <div class="activity">
       <ul class="activity-list">
@@ -139,7 +139,7 @@
             <!--<a class="link" href="{{ $item['url'] }}">View</a>-->
           </li>
         @empty
-          <li class="activity-item"><div class="activity-text">No recent activity.</div></li>
+          <li class="activity-item"><div class="activity-text">Ninguna actividad reciente.</div></li>
         @endforelse
       </ul>
     </div>
@@ -148,8 +148,8 @@
   <!-- Quick Actions -->
   <div class="card">
     <div class="card-header">
-      <h3 class="card-title">Quick Actions</h3>
-      <p class="card-sub">Common tasks</p>
+      <h3 class="card-title">Acciones rápidas</h3>
+      <p class="card-sub">Tareas comunes</p>
     </div>
     <div class="qa">
       <a href="{{ route('employees.create') }}" class="qa-btn bg-purple">
@@ -157,7 +157,7 @@
           <span class="qa-icon">
             <svg viewBox="0 0 24 24"><path d="M13 11h4v2h-4v4h-2v-4H7v-2h4V7h2v4Z"/></svg>
           </span>
-          Add Employee
+          Agregar empleado
         </span>
       </a>
 

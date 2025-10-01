@@ -72,13 +72,13 @@
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
         <div class="name">{{ $e->name }}</div>
         @if($hasEval)
-          <span class="pill"><span class="dot"></span> Mystery shopper added</span>
+          <span class="pill"><span class="dot"></span> Comprador de misterio añadido</span>
         @endif
       </div>
 
       {{-- status row --}}
       <div class="muted" style="display:flex;align-items:center;gap:8px;margin-top:2px">
-        Status:
+        Estado:
         <span class="badge {{ $isActive ? 'badge-active' : 'badge-inactive' }}">
           <span class="dot"></span>{{ $isActive ? 'Active' : 'Inactive' }}
         </span>
@@ -88,7 +88,7 @@
       <div class="muted" style="margin-top:6px">Role: {{ $e->position ?? '—' }}</div>
     </a>
   @empty
-    <div class="card">No employees found.</div>
+    <div class="card">No se encontraron empleados.</div>
   @endforelse
 </div>
 

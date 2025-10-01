@@ -44,7 +44,7 @@
 {{-- All validation errors --}}
 @if ($errors->any())
   <div class="alert alert-danger" role="alert">
-    <strong>There were some problems with your input:</strong>
+    <strong>Hubo algunos problemas con tu entrada:</strong>
     <ul class="mb-0"   style="color: red;">
       @foreach ($errors->all() as $msg)
         <li>{{ $msg }}</li>
@@ -54,7 +54,7 @@
 @endif
 
 <div class="ef-card ef-pad">
-  <h2 class="ef-title">{{ $employee->exists ? 'Edit Employee' : 'New Employee' }}</h2>
+  <h2 class="ef-title">{{ $employee->exists ? 'Editar empleado' : 'Nuevo empleado' }}</h2>
 
   <form method="POST"
         action="{{ $employee->exists ? route('employees.update',$employee) : route('employees.store') }}">
@@ -63,41 +63,41 @@
 
     <div class="ef-grid">
       <div>
-        <label class="ef-label">First name *</label>
+        <label class="ef-label">Nombre de pila *</label>
         <input class="ef-input" name="first_name" value="{{ old('first_name',$employee->first_name) }}" required>
       </div>
 
       <div>
-        <label class="ef-label">Last name *</label>
+        <label class="ef-label">Apellido *</label>
         <input class="ef-input" name="last_name" value="{{ old('last_name',$employee->last_name) }}" required>
       </div>
 
       <div>
-        <label class="ef-label">Email</label>
+        <label class="ef-label">Correo electrónico</label>
         <input class="ef-input" name="email" type="email" value="{{ old('email',$employee->email) }}">
       </div>
 
       <div>
-        <label class="ef-label">Position</label>
+        <label class="ef-label">Posición</label>
         <input class="ef-input" name="position" value="{{ old('position',$employee->position) }}">
       </div>
 
       <div>
-        <label class="ef-label">Status</label>
+        <label class="ef-label">Estado</label>
         <select class="ef-select" name="status">
           @foreach(['ACTIVE','INACTIVE'] as $s)
             <option value="{{ $s }}" @selected(old('status',$employee->status)===$s)>{{ $s }}</option>
           @endforeach
         </select>
-        <div class="ef-help">Choose “INACTIVE” for former employees.</div>
+        <div class="ef-help">Elija "INACTIVO" para los ex empleados</div>
       </div>
     </div>
 
     <div class="ef-actions">
       <button class="btn btn-primary" type="submit">
-        {{ $employee->exists ? 'Update' : 'Create' }}
+        {{ $employee->exists ? 'Actualizar' : 'Crear' }}
       </button>
-      <a href="{{ url()->previous() }}" class="btn btn-secondary">Cancel</a>
+      <a href="{{ url()->previous() }}" class="btn btn-secondary">Cancelar</a>
     </div>
   </form>
 </div>

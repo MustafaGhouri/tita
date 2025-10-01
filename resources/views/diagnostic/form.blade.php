@@ -46,8 +46,8 @@
 
 <div class="df-head">
   <div>
-    <h2 class="df-title">Diagnostic — {{ $employee->name }}</h2>
-    <p class="df-sub">Please answer all questions below</p>
+    <h2 class="df-title">Diagnóstico — {{ $employee->name }}</h2>
+    <p class="df-sub">Por favor responda todas las preguntas a continuación</p>
   </div>
 </div>
 
@@ -68,8 +68,8 @@
 
         @elseif($i['type']==='boolean')
           <select name="answers[{{ $i['key'] }}]" class="df-select">
-            <option value="1">True</option>
-            <option value="0">False</option>
+            <option value="1">Verdadero</option>
+            <option value="0">Falso</option>
           </select>
 
         @elseif($i['type']==='scale')
@@ -81,21 +81,21 @@
           </div>
 
         @elseif($i['type']==='short_text')
-          <input type="text" name="answers[{{ $i['key'] }}]" class="df-input" placeholder="Type your answer...">
+          <input type="text" name="answers[{{ $i['key'] }}]" class="df-input" placeholder="Escribe tu respuesta...">
         @endif
       </div>
     @endforeach
 
     <div class="df-item">
-      <label class="df-label">Manual score (optional)</label>
+      <label class="df-label">Puntuación manual (opcional)</label>
       <input type="number" name="manual_score" step="0.01" class="df-input" placeholder="e.g., 84.5">
-      <div style="color:var(--muted);font-size:12px;margin-top:6px">If left blank, the score will be calculated automatically</div>
+      <div style="color:var(--muted);font-size:12px;margin-top:6px">Si se deja en blanco, la puntuación se calculará automáticamente.</div>
     </div>
   </div>
 
   <div class="df-actions">
-    <button class="btn btn-primary" type="submit">Submit</button>
-    <a href="{{ url()->previous() }}" class="btn btn-secondary">Cancel</a>
+    <button class="btn btn-primary" type="submit">Entregar</button>
+    <a href="{{ url()->previous() }}" class="btn btn-secondary">Cancelar</a>
   </div>
 </form>
 @endsection
