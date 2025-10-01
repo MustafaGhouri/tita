@@ -26,23 +26,66 @@ class CoachingSessionController extends Controller {
         return view('coaching.form', ['employee'=>$employee, 'session'=>new CoachingSession]);
     }
 
-    public function store(CoachingSessionRequest $req, Employee $employee){
+    // public function store(CoachingSessionRequest $req, Employee $employee){
+    //     $data = $req->validated();
+    //     $data['employee_id'] = $employee->id;
+    //     $data['company_id'] = auth()->user()->company_id;
+    //     $data['created_by'] = auth()->id();
+
+    //     // attachments
+    //     if ($req->hasFile('attachments')) {
+    //         $paths = [];
+    //         foreach($req->file('attachments') as $f){
+    //             $paths[] = $f->store("coach/".auth()->user()->company_id.'/'.$employee->id, 'public');
+    //         }
+    //         $data['attachments'] = $paths;
+    //     }
+    //     CoachingSession::create($data);
+    //     return redirect()->route('coaching.index',$employee)->with('ok','Saved.');
+    // }
+
+     public function store(CoachingSessionRequest $req, Employee $employee)
+    {
         $data = $req->validated();
         $data['employee_id'] = $employee->id;
         $data['company_id'] = auth()->user()->company_id;
         $data['created_by'] = auth()->id();
 
-        // attachments
+        // attachments -> Cloudinary (URLs save honge)
         if ($req->hasFile('attachments')) {
-            $paths = [];
-            foreach($req->file('attachments') as $f){
-                $paths[] = $f->store("coach/".auth()->user()->company_id.'/'.$employee->id, 'public');
+            $urls = [];
+
+            foreach ((array) $req->file('attachments') as $file) {
+                $isVideo = Str::startsWith($file->getMimeType(), 'video');
+
+                $uploaded = Cloudinary::uploadFile(
+                    $file->getRealPath(),
+                    [
+                        'folder'        => 'coach/' . auth()->user()->company_id . '/' . $employee->id,
+                        'resource_type' => $isVideo ? 'video' : 'auto', // videos ke liye 'video' zaroori
+                        // 'public_id'   => pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME), // optional
+                    ]
+                );
+
+                // sirf URL save kar rahe hain (simple drop-in replacement)
+                $urls[] = $uploaded->getSecurePath();
+
+                // — Agar aap future me delete/transform karna chahen to iski jagah yeh store karein:
+                // $urls[] = [
+                //     'url'       => $uploaded->getSecurePath(),
+                //     'public_id' => $uploaded->getPublicId(),
+                //     'type'      => $isVideo ? 'video' : 'file',
+                // ];
             }
-            $data['attachments'] = $paths;
+
+            $data['attachments'] = $urls; // JSON column par cast ho to direct array save ho jayega
         }
-        CoachingSession::create($data);
-        return redirect()->route('coaching.index',$employee)->with('ok','Saved.');
+      
+        //CoachingSession::create($data);
+
+        return $data;
     }
+
 
     public function edit(Employee $employee, CoachingSession $session){
         return view('coaching.form', compact('employee','session'));
