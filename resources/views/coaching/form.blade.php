@@ -151,8 +151,7 @@
             <div class="mt-3">
                 <label class="cf-label">Adjuntos</label>
                 <input type="file" name="attachments[]" multiple class="cf-file">
-                <div class="muted" style="font-size:12px;margin-top:4px">Puedes cargar varios archivos (PDF, imágenes,
-                    documentos)</div>
+                <div class="muted" style="font-size:12px;margin-top:4px">Puedes cargar varios archivos (mp4, vídeos)</div>
             </div>
 
             <div class="cf-actions">
