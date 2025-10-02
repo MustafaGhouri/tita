@@ -203,7 +203,7 @@
                   </select>
 
                 @elseif($type === 'note' || $type === 'textarea')
-                  <textarea id="fld-{{ $key }}" class="mc-textarea" name="answers[{{ $key }}]" placeholder="Write here...">{{ $def }}</textarea>
+                  <textarea id="fld-{{ $key }}" class="mc-textarea" name="answers[{{ $key }}]" placeholder="Escribe aquí...">{{ $def }}</textarea>
                 @endif
 
                 @if($help)<div class="mc-help">{{ $help }}</div>@endif
