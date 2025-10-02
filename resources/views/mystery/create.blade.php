@@ -108,13 +108,13 @@
       } elseif (isset($schema['items']) && is_array($schema['items'])) {
         $sections = [[ 'title' => null, 'desc' => null, 'items' => $schema['items'] ]];
       }
-      $yn   = $schema['yes_no_labels'] ?? ['yes'=>'Yes','no'=>'No'];
-      $ynna = $schema['yes_no_na_labels'] ?? ['yes'=>'Yes','no'=>'No','na'=>'N/A'];
+      $yn   = $schema['yes_no_labels'] ?? ['yes'=>'Sí','no'=>'No'];
+      $ynna = $schema['yes_no_na_labels'] ?? ['yes'=>'Sí','no'=>'No','na'=>'N/A'];
 
       // Helper to flush a matrix group
       function render_matrix($groupType, $rows) {
         // Header labels per screenshot
-        $hdr = $groupType === 'yes_no' ? ['no'=>'No','yes'=>'Yeah'] : ['no'=>'No','yes'=>'Yeah','na'=>'N/A'];
+        $hdr = $groupType === 'yes_no' ? ['no'=>'No','yes'=>'Sí'] : ['no'=>'No','yes'=>'Sí','na'=>'N/A'];
         echo '<table class="mx"><thead><tr>';
         echo '<th class="mx-blank"></th>';
         foreach($hdr as $lab){ echo '<th class="mx-center">'.e($lab).'</th>'; }
