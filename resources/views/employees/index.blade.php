@@ -150,26 +150,46 @@
 
 <script>
   $(function () {
-    // init DataTable
     const dt = $('#empTable').DataTable({
       pageLength: 10,
-      lengthMenu: [[10,25,50,100,-1],[10,25,50,100,'All']],
-      order: [], // keep your original order (disable default sort)
-      dom: 'Bfrtip', // Buttons + default UI
+      lengthMenu: [[10,25,50,100,-1],[10,25,50,100,'Todos']],
+      order: [],
+      dom: 'Bfrtip',
       buttons: [
-        { extend: 'copyHtml5',  title: 'Employees' },
-        { extend: 'csvHtml5',   title: 'Employees' },
-        { extend: 'excelHtml5', title: 'Employees' },
-        { extend: 'pdfHtml5',   title: 'Employees' },
-        { extend: 'print',      title: 'Employees' }
+        { extend: 'copyHtml5',  title: 'Empleados' },
+        { extend: 'csvHtml5',   title: 'Empleados' },
+        { extend: 'excelHtml5', title: 'Empleados' },
+        { extend: 'pdfHtml5',   title: 'Empleados' },
+        { extend: 'print',      title: 'Empleados' }
       ],
-      language: { search: "", zeroRecords: "No matching employees found" }
+      language: {
+        search: "Buscar:",
+        zeroRecords: "No se encontraron empleados",
+        info: "Mostrando _START_ a _END_ de _TOTAL_ empleados",
+        infoEmpty: "Mostrando 0 a 0 de 0 empleados",
+        infoFiltered: "(filtrado de _MAX_ empleados en total)",
+        lengthMenu: "Mostrar _MENU_ empleados",
+        paginate: {
+          first: "Primero",
+          last: "Último",
+          next: "Siguiente",
+          previous: "Anterior"
+        },
+        buttons: {
+          copy: "Copiar",
+          csv: "Exportar CSV",
+          excel: "Exportar Excel",
+          pdf: "Exportar PDF",
+          print: "Imprimir"
+        }
+      }
     });
 
-    // hook our search box
+    // hook de búsqueda personalizada
     $('#dt-search').on('keyup', function () {
       dt.search(this.value).draw();
     });
   });
 </script>
+
 @endsection

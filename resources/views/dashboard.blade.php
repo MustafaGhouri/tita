@@ -27,7 +27,7 @@
 
 <div class="page-head">
   <div>
-    <h1>Dashboard</h1>
+    <h1>Panel</h1>
     <p>¡Bienvenidos de nuevo! Esto es lo que está pasando con tu equipo.</p>
   </div>
 </div>

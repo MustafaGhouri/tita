@@ -66,6 +66,15 @@ Route::middleware('auth')->group(function () {
     Route::post('employees/{employee}/coaching',                [CoachingSessionController::class,'store'])->name('coaching.store');
     Route::get('employees/{employee}/coaching/{session}/edit',  [CoachingSessionController::class,'edit'])->name('coaching.edit');
     Route::put('employees/{employee}/coaching/{session}',       [CoachingSessionController::class,'update'])->name('coaching.update');
+
+
+     Route::get('/clear-cache', function () {
+        Artisan::call('cache:clear');
+        Artisan::call('route:clear');
+        Artisan::call('config:clear');
+        Artisan::call('view:clear');
+        return "Cache cleared successfully!";
+    });
 });
 
 require __DIR__.'/auth.php';

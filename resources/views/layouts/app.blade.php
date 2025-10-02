@@ -126,7 +126,7 @@
       <nav class="nav">
         <a class="{{ request()->routeIs('dashboard')?'active':'' }}" href="{{ route('dashboard') }}">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 10 12 3l9 7v10H3V10Zm7 8h4v-6h-4v6Z"/></svg>
-          <span>Dashboard</span>
+          <span>Panel</span>
         </a>
         <a class="{{ str_contains(request()->route()?->getName() ?? '','employees')?'active':'' }}" href="{{ route('employees.index') }}">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-3.53 0-8 1.77-8 4v2h16v-2c0-2.23-4.47-4-8-4Z"/></svg>

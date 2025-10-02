@@ -39,7 +39,7 @@ class MysteryEvaluationController extends Controller
         $input   = (string) trim($request->input('code', ''));
 
         if ($dbCode === '' || !hash_equals($dbCode, $input)) {
-            return back()->withErrors(['code' => 'Invalid security code.'])->withInput();
+            return back()->withErrors(['code' => 'Código de seguridad inválido.'])->withInput();
         }
 
         // One-time unlock for this employee

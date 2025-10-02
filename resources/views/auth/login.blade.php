@@ -41,15 +41,15 @@
         </div>
       </div>
 
-      <h1 class="auth-title">Sign in to your account</h1>
-      <p class="auth-sub">Enter your credentials to access the system</p>
+      <h1 class="auth-title">Inicia sesión en tu cuenta</h1>
+      <p class="auth-sub">Ingrese sus credenciales para acceder al sistema</p>
 
       <form method="POST" action="{{ route('login') }}" novalidate>
         @csrf
 
         {{-- Username --}}
         <div class="field">
-          <label class="label">Username</label>
+          <label class="label">Nombre de usuario</label>
           <div class="control">
             <span class="icon-left">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -61,7 +61,7 @@
               type="text"
               name="email"
               value="{{ old('email') }}"
-              placeholder="Enter username"
+              placeholder="Ingrese el nombre de usuario"
               required
               autofocus
             />
@@ -71,7 +71,7 @@
 
         {{-- Password --}}
         <div class="field">
-          <label class="label">Password</label>
+          <label class="label">Contraseña</label>
           <div class="control">
             <span class="icon-left">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -83,7 +83,7 @@
               class="input"
               type="password"
               name="password"
-              placeholder="Enter password"
+              placeholder="Introduce la contraseña"
               required
             />
             <button type="button" id="togglePassword" class="icon-right-btn" aria-label="Show password">
@@ -96,13 +96,13 @@
         </div>
 
         <div class="row-actions">
-          <a href="{{ route('password.request') }}" class="link">Forgot password?</a>
+          <a href="{{ route('password.request') }}" class="link">¿Has olvidado tu contraseña?</a>
         </div>
 
-        <button type="submit" class="btn">Login</button>
+        <button type="submit" class="btn">Acceso</button>
       </form>
 
-      <div class="foot">© {{ now()->year }} Attento. All rights reserved.</div>
+      <div class="foot">© {{ now()->year }} Atento. Todos los derechos reservados.</div>
     </div>
   </div>
 

@@ -80,7 +80,7 @@
       <div class="muted" style="display:flex;align-items:center;gap:8px;margin-top:2px">
         Estado:
         <span class="badge {{ $isActive ? 'badge-active' : 'badge-inactive' }}">
-          <span class="dot"></span>{{ $isActive ? 'Active' : 'Inactive' }}
+          <span class="dot"></span>{{ $isActive ? 'Activo' : 'Inactivo' }}
         </span>
       </div>
 

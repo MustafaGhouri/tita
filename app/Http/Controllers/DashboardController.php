@@ -30,7 +30,7 @@ class DashboardController extends Controller {
                         'employee' => optional($e->employee)->name ?? 'Employee',
                         'when'     => $e->created_at,
                         'url'      => route('mystery.show', $e),
-                        'label'    => 'completed mystery evaluation',
+                        'label'    => 'evaluación misteriosa completa',
                     ];
                 })
             )
@@ -44,7 +44,7 @@ class DashboardController extends Controller {
                         'employee' => optional($d->employee)->name ?? 'Employee',
                         'when'     => $d->submitted_at,
                         'url'      => $url,
-                        'label'    => 'completed diagnostic test',
+                        'label'    => 'prueba diagnóstica completa',
                         // optional: 'score' => $d->final_score,
                     ];
                 })

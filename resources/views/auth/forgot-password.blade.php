@@ -41,9 +41,9 @@
         </div>
       </div>
 
-      <h1 class="auth-title">Forgot your password?</h1>
+      <h1 class="auth-title">¿Olvidaste tu contraseña?</h1>
       <p class="auth-sub">
-        Enter your email and we’ll send you a link to reset it.
+        Ingresa tu correo electrónico y te enviaremos un enlace para restablecerlo.
       </p>
 
       {{-- Session Status (success message after sending reset link) --}}
@@ -62,7 +62,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-top:2px">
             <path d="M11 17h2v-6h-2v6Zm0-8h2V7h-2v2Zm1 13A10 10 0 1 1 22 12 10.011 10.011 0 0 1 12 22Z"/>
           </svg>
-          <span>We’ll email a secure reset link if the address matches an account.</span>
+          <span>Le enviaremos por correo electrónico un enlace de restablecimiento seguro si la dirección coincide con una cuenta.</span>
         </div>
       @endif
 
@@ -71,7 +71,7 @@
 
         {{-- Email --}}
         <div class="field">
-          <label class="label" for="email">Email address</label>
+          <label class="label" for="email">Dirección de correo electrónico</label>
           <div class="control">
             <span class="icon-left">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -84,7 +84,7 @@
               type="email"
               name="email"
               value="{{ old('email') }}"
-              placeholder="you@example.com"
+              placeholder="tu@ejemplo.com"
               autocomplete="email"
               required
               autofocus
@@ -94,15 +94,15 @@
         </div>
 
         <div class="row-actions">
-          <a href="{{ route('login') }}" class="link">Back to login</a>
+          <a href="{{ route('login') }}" class="link">Volver a iniciar sesión</a>
         </div>
 
         <button type="submit" class="btn" id="sendBtn">
-          Email Password Reset Link
+          Enlace para restablecer contraseña de correo electrónico
         </button>
       </form>
 
-      <div class="foot">© {{ now()->year }} Attento. All rights reserved.</div>
+      <div class="foot">© {{ now()->year }} Atento. Todos los derechos reservados.</div>
     </div>
   </div>
 
