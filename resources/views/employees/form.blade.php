@@ -63,7 +63,7 @@
 
     <div class="ef-grid">
       <div>
-        <label class="ef-label">Nombre de pila *</label>
+        <label class="ef-label"></label>
         <input class="ef-input" name="first_name" value="{{ old('first_name',$employee->first_name) }}" required>
       </div>
 
