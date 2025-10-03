@@ -21,7 +21,7 @@ class DiagnosticController extends Controller {
     public function start(Employee $employee){
         $this->authorizeRun($employee);
         if ($employee->diagnosticResult) {
-            return back()->withErrors('Diagnostic already completed.');
+            return back()->withErrors('Diagnóstico ya completado.');
         }
         $template = TestTemplate::where('is_active',true)->firstOrFail();
         return view('diagnostic.form', compact('employee','template'));
@@ -29,7 +29,7 @@ class DiagnosticController extends Controller {
 
     public function submit(DiagnosticSubmitRequest $req, Employee $employee){
         $this->authorizeRun($employee);
-        if ($employee->diagnosticResult) { return back()->withErrors('Already completed.'); }
+        if ($employee->diagnosticResult) { return back()->withErrors('Ya completado.'); }
 
         $tpl = TestTemplate::where('is_active',true)->firstOrFail();
         $answers = $req->input('answers');

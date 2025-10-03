@@ -35,9 +35,9 @@ class EmployeeStoreRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'first_name.required' => 'First name is required.',
-            'email.unique'        => 'This email is already used in your company.',
-            'status.in'           => 'Status must be ACTIVE or INACTIVE.',
+            'first_name.required' => 'El nombre es obligatorio.',
+            'email.unique'        => 'Este correo electrónico ya se utiliza en su empresa.',
+            'status.in'           => 'El estado debe ser ACTIVO o INACTIVO',
         ];
     }
 }
