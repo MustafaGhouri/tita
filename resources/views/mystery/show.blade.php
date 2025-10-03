@@ -103,7 +103,7 @@
     <div>
       @php $isActive = ($emp->status ?? '') === 'ACTIVE'; @endphp
       <span class="badge {{ $isActive ? 'badge-active' : '' }}">
-        <span class="dot"></span>{{ $isActive ? 'Active' : 'Inactive' }}
+        <span class="dot"></span>{{ $isActive ? 'Activo' : 'Inactivo' }}
       </span>
     </div>
   </div>
@@ -192,11 +192,11 @@
                 if(!is_null($val)){
                   switch($type){
                     case 'yes_no':
-                      $display = ($val==='yes' || $val===1 || $val===true || $val==='1') ? 'Yes' : 'No';
+                      $display = ($val==='yes' || $val===1 || $val===true || $val==='1') ? 'SI' : 'No';
                       break;
                     case 'yes_no_na':
                       if(in_array(strtolower((string)$val), ['na','n/a'])) $display = 'N/A';
-                      else $display = ($val==='yes' || $val===1 || $val===true || $val==='1') ? 'Yes' : 'No';
+                      else $display = ($val==='yes' || $val===1 || $val===true || $val==='1') ? 'Si' : 'No';
                       break;
                     case 'scale':
                     case 'range':

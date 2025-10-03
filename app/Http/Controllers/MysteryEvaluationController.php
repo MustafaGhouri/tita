@@ -103,7 +103,7 @@ class MysteryEvaluationController extends Controller
         if (!session()->pull($key, false)) {
             return redirect()
                 ->route('mystery.employee', $employee)
-                ->withErrors(['code' => 'Session is not unlocked. Please enter the company code again.']);
+                ->withErrors(['code' => 'Session is not unlocked. Please enter the company code again.La sesión no está desbloqueada. Vuelva a introducir el código de la empresa.']);
         }
 
         // Basic validation
@@ -116,7 +116,7 @@ class MysteryEvaluationController extends Controller
 
         // 1 per month
         if ($employee->evaluations()->where('monthKey', $req->monthKey)->exists()) {
-            return back()->withErrors(['monthKey' => 'Only one evaluation per month is allowed.'])->withInput();
+            return back()->withErrors(['monthKey' => 'Sólo se permite una evaluación por mes.'])->withInput();
         }
 
         // Normalize answers to array
@@ -125,7 +125,7 @@ class MysteryEvaluationController extends Controller
             $answers = json_decode($answers, true);
         }
         if (!is_array($answers)) {
-            return back()->withErrors(['answers' => 'Invalid answers payload.'])->withInput();
+            return back()->withErrors(['answers' => 'Carga útil de respuestas no válidas.'])->withInput();
         }
 
         // Load checklist + normalize schema
@@ -134,7 +134,7 @@ class MysteryEvaluationController extends Controller
         if (is_string($schema)) {
             $schema = json_decode($schema, true);
             if (json_last_error() !== JSON_ERROR_NONE) {
-                return back()->withErrors(['checklist_id' => 'Checklist schema JSON is invalid.']);
+                return back()->withErrors(['checklist_id' => 'El esquema de lista de verificación JSON no es válido.']);
             }
         }
 
@@ -153,7 +153,7 @@ class MysteryEvaluationController extends Controller
                     'sys_tmp'             => sys_get_temp_dir(),
                 ],
             ]);
-            return back()->withErrors(['video' => 'Upload failed before saving.'])->withInput();
+            return back()->withErrors(['video' => 'La carga falló antes de guardar.'])->withInput();
         }
 
         $companyId = auth()->user()->company_id ?? 'company';
@@ -176,7 +176,7 @@ class MysteryEvaluationController extends Controller
                 'err'    => $e->getMessage(),
                 'last'   => error_get_last(),
             ]);
-            return back()->withErrors(['video' => 'Video upload failed on server.'])->withInput();
+            return back()->withErrors(['video' => 'La carga del video falló en el servidor.'])->withInput();
         }
 
         $relativePathForDb = $dirRel . '/' . $name;
