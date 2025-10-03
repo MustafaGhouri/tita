@@ -62,6 +62,9 @@ class CoachingSessionController extends Controller {
         $data['company_id'] = auth()->user()->company_id;
         $data['employee_id'] = $employee->id;
         $data['created_by'] = auth()->id();
+        $data['date'] = $req->date;
+        $data['recommendations'] = $req->recommendations;
+        $data['follow_up_date'] = $req->follow_up_date;
 
         //   return $req->all();
 
@@ -73,12 +76,12 @@ class CoachingSessionController extends Controller {
                 $isVideo = \Str::startsWith($file->getMimeType(), 'video');
 
                 $res = (new \Cloudinary\Api\Upload\UploadApi())->upload(
-    $file->getRealPath(),
-    [
-        'folder'        => 'coach/' . auth()->user()->company_id . '/' . $employee->id,
-        'resource_type' => $isVideo ? 'video' : 'auto',
-    ]
-);
+                    $file->getRealPath(),
+                    [
+                        'folder'        => 'coach/' . auth()->user()->company_id . '/' . $employee->id,
+                        'resource_type' => $isVideo ? 'video' : 'auto',
+                    ]
+                );
 
                 // sirf URL save kar rahe hain (simple drop-in replacement)
                 // $urls[] = $uploaded->getSecurePath();
