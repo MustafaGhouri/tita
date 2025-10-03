@@ -39,7 +39,7 @@
       <div>
         <div class="kpi-title">Empleados activas</div>
         <div class="kpi-value">{{ $activeEmployees }}</div>
-        <div class="kpi-hint">+2 this month</div>
+        <div class="kpi-hint">+2 este mes</div>
       </div>
       <div class="kpi-icon bg-purple-50">
         <svg class="text-purple-600" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">

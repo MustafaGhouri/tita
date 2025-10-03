@@ -59,20 +59,20 @@ class MysteryEvaluationController extends Controller
             if (!session($this->unlockKey($employee->id), false)) {
                 return redirect()
                     ->route('mystery.employee', $employee)
-                    ->withErrors('Please enter your company security code to start an evaluation.');
+                    ->withErrors('Ingrese el código de seguridad de su empresa para iniciar una evaluación.');
             }
 
             $month = now()->format('Y-m');
 
             // 1 eval per month per employee
             if ($employee->evaluations()->where('monthKey', $month)->exists()) {
-                return back()->withErrors('Only one evaluation per month is allowed.');
+                return back()->withErrors('Sólo se permite una evaluación por mes.');
             }
 
             // Load active checklist
             $checklist = MysteryChecklist::where('is_active', true)->first();
             if (!$checklist) {
-                return back()->withErrors('No active checklist found. Please activate a checklist first.');
+                return back()->withErrors('No se encontró ninguna lista de verificación activa. Active una lista de verificación primero.');
             }
 
             // Ensure schema is array for the Blade view

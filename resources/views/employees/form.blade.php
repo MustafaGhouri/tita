@@ -85,7 +85,7 @@
       <div>
         <label class="ef-label">Estado</label>
         <select class="ef-select" name="status">
-          @foreach(['ACTIVE','INACTIVE'] as $s)
+          @foreach(['ACTIVO','INACTIVO'] as $s)
             <option value="{{ $s }}" @selected(old('status',$employee->status)===$s)>{{ $s }}</option>
           @endforeach
         </select>

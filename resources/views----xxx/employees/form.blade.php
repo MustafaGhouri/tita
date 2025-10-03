@@ -69,7 +69,7 @@
 
     <div class="ef-actions">
       <button class="btn btn-primary" type="submit">
-        {{ $employee->exists ? 'Update' : 'Create' }}
+        {{ $employee->exists ? 'Actualizar' : 'Crear' }}
       </button>
       <a href="{{ url()->previous() }}" class="btn btn-secondary">Cancel</a>
     </div>

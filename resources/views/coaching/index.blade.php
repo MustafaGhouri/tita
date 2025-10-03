@@ -132,7 +132,7 @@
   </div>
 
   <div class="pad">
-    {{ $list->links() }}
+    {{-- {{ $list->links() }} --}}
   </div>
 </section>
 
