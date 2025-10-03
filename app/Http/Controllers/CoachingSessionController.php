@@ -47,6 +47,14 @@ class CoachingSessionController extends Controller {
     //     return redirect()->route('coaching.index',$employee)->with('ok','Saved.');
     // }
 
+    /**
+     * Store a new coaching session.
+     *
+     * @param CoachingSessionRequest $req
+     * @param Employee $employee
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
      public function store(CoachingSessionRequest $req, Employee $employee)
     {
         $data = $req->validated();
@@ -64,14 +72,13 @@ class CoachingSessionController extends Controller {
             foreach ((array) $req->file('attachments') as $file) {
                 $isVideo = \Str::startsWith($file->getMimeType(), 'video');
 
-                $res = (new UploadApi())->upload(
-                    $file->getRealPath(),
-                    [
-                        'folder'        => 'coach/' . auth()->user()->company_id . '/' . $employee->id,
-                        'resource_type' => $isVideo ? 'video' : 'auto', // videos ke liye 'video' zaroori
-                        // 'public_id'   => pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME), // optional
-                    ]
-                );
+                $res = (new \Cloudinary\Api\Upload\UploadApi())->upload(
+    $file->getRealPath(),
+    [
+        'folder'        => 'coach/' . auth()->user()->company_id . '/' . $employee->id,
+        'resource_type' => $isVideo ? 'video' : 'auto',
+    ]
+);
 
                 // sirf URL save kar rahe hain (simple drop-in replacement)
                 // $urls[] = $uploaded->getSecurePath();
