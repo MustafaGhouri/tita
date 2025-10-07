@@ -28,7 +28,7 @@
 <div class="page-head">
   <div>
     <h1>Panel</h1>
-    <p>mazz</p>
+    <p>¡Bienvenidos de nuevo! Esto es lo que está pasando con tu equipo.</p>
   </div>
 </div>
 
