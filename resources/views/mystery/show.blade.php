@@ -133,6 +133,8 @@
             $scoreClass = $score >= 80 ? 'green' : ($score >= 60 ? 'yellow' : 'red');
             $monthLabel = $ev->monthKey ?? \Illuminate\Support\Carbon::parse($ev->created_at)->isoFormat('MMMM YYYY');
             $videoUrl = !empty($ev->video_path) ? asset($ev->video_path) : null; // ✅ correct
+
+            // dd($videoUrl);
           @endphp
           <tr style="text-align:center">
             <td>{{ $monthLabel }}</td>
@@ -166,6 +168,7 @@
   <div class="card-pad">
     @php $videoUrl = !empty($evaluation->video_path) ? asset($evaluation->video_path) : null; @endphp
     @if($videoUrl)
+    {{ $videoUrl }}
       <video controls style="width:100%;border:1px solid var(--border);border-radius:12px">
         <source src="{{ $videoUrl }}" type="video/mp4">
         <a href="{{ $videoUrl }}" class="link">Ver vídeo</a>
