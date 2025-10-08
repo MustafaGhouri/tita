@@ -174,7 +174,7 @@
         <a href="{{ $videoUrl }}" class="link">Ver vídeo</a>
       </video>
     @else
-      <div class="muted">No hay vídeo adjunto.</div>
+      <div class="muted">No hay vídeo adjunto mazzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz.</div>
     @endif
 
     {{-- Answers by section --}}
