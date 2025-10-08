@@ -112,7 +112,7 @@
 {{-- Evaluation Archive table --}}
 <div class="card">
   <div class="card-head">
-    <h3 class="card-title">Archivo de evaluación</h3>
+    <h3 class="card-title">Archivo de evaluación eeeeeeeeeeeeeeeeeeee</h3>
     <p class="card-sub">Gestionar y realizar un seguimiento de las evaluaciones de compradores misteriosos para este empleado</p>
   </div>
 
