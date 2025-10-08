@@ -104,7 +104,7 @@
           <tr>
             <td>{{ optional($s->date)->format('M d, Y') }}</td>
             <td class="muted">
-              {{ \Illuminate\Support\Str::limit($s->summary ?? '—', 85) }}
+              {{ \Illuminate\Support\Str::limit($s->recommendations ?? '—', 85) }}
             </td>
             <td>{{ $s->follow_up_date ? $s->follow_up_date->format('M d, Y') : '—' }}</td>
             <td>
